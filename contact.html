@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Aniyam Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .wa-card {
+            background: linear-gradient(135deg, rgba(24, 25, 56, 1), rgba(12, 11, 30, 1));
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .contact-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .contact-list li {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-list .material-icons {
+            color: var(--accent-purple);
+            background: rgba(139, 92, 246, 0.1);
+            padding: 10px;
+            border-radius: 50%;
+            height: fit-content;
+        }
+
+        .placeholders-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .ph-box {
+            height: 250px;
+            background: rgba(24, 25, 56, 0.5);
+        }
+
+        .btn-full {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-full:hover {
+            background: #7c3aed;
+        }
+
+        .wa-btn {
+            background: white;
+            color: #128c7e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid, .placeholders-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="global-header">
+        <div class="logo-placeholder">
+            <div class="logo-icon-box">Logo</div>
+            <span>Aniyam Academy</span>
+        </div>
+        <button class="header-btn">Enroll Now</button>
+    </header>
+
+    <nav class="floating-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link.active">Contact Us</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg px-container" style="padding-top: 150px; text-align: center;">
+        <div class="container reveal">
+            <h1 class="hero-title" style="margin-bottom: 20px;">Contact Us to Get Started</h1>
+            <p class="hero-subtitle">We are here to guide you every step of the way. Whether you have a question about our courses or need help getting started, feel free to reach out.</p>
+        </div>
+    </section>
+
+    <!-- Content Split -->
+    <section class="container reveal" style="padding-top: 0;">
+        <div class="contact-grid">
+            
+            <!-- Left Form -->
+            <div>
+                <span class="section-tag" style="border: none; color: var(--accent-purple); padding: 0;">SEND AN INQUIRY</span>
+                <div class="contact-card" style="margin-top: 20px;">
+                    <form>
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Enter your name">
+
+                        <label>Email Address</label>
+                        <input type="email" placeholder="example@email.com">
+
+                        <label>Message</label>
+                        <textarea rows="5" placeholder="How can we help you start your journey?"></textarea>
+
+                        <button type="submit" class="btn-full" style="background: var(--accent-purple);">Send Message &rarr;</button>
+                    </form>
+                </div>
+                
+                <div class="contact-card" style="margin-top: 20px; padding: 0; overflow: hidden; height: 250px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15715.352601736932!2d78.11409!3d9.9252445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c582b1189633%3A0nd!2sAnna+Nagar%2C+Madurai%2C+Tamil+Nadu!5e0!3m2!1sen!2sin!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <!-- Right Info -->
+            <div>
+                <span class="section-tag" style="border: none; color: var(--text-main); font-weight: 500; padding: 0;">DIRECT CONTACT</span>
+                
+                <div class="wa-card" style="margin-top: 20px;">
+                    <span class="material-icons" style="position: absolute; right: 20px; top: 20px; font-size: 3rem; color: rgba(255,255,255,0.05);">chat_bubble_outline</span>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <span class="material-icons" style="font-size: 1rem;">chat</span> <span style="font-size: 0.8rem; font-weight: 500;">Direct Chat</span>
+                    </div>
+                    <h3 style="margin-bottom: 10px; font-weight: 400;">WhatsApp Support</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Need a quick answer? Our team is available on WhatsApp for instant guidance.</p>
+                    <button class="wa-btn" onclick="window.open('https://wa.me/917339692434', '_blank')">Chat on WhatsApp</button>
+                </div>
+
+                <ul class="contact-list">
+                    <li>
+                        <span class="material-icons">phone</span>
+                        <div>
+                            <h4 style="font-size: 0.9rem;">Phone Number</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">+91 73396 92434</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="material-icons">location_on</span>
+                        <div>
+                            <h4 style="font-size: 0.9rem;">Academy Address</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);"><a href="https://maps.app.goo.gl/2pt7xPNSgUiDgjpc6" target="_blank">123, Skill Avenue, Anna Nagar,<br>Madurai, Tamil Nadu - 625020</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="material-icons">schedule</span>
+                        <div>
+                            <h4 style="font-size: 0.9rem;">Office Hours</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <span class="section-tag" style="border: none; color: var(--text-main); font-weight: 500; padding: 0;">FOLLOW OUR JOURNEY</span>
+                <div style="display: flex; gap: 15px; margin-top: 15px;">
+                    <a href="https://www.instagram.com/aniyam_academy/?hl=en" target="_blank" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/p/Aniyam-Academy-61560764136309/" target="_blank" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/917339692434" target="_blank" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Placeholders -->
+        <div class="placeholders-grid reveal">
+            <div class="img-placeholder ph-box" style="border: none;">ACADEMY MAIN CENTER</div>
+            <div class="img-placeholder ph-box" style="border: none;">STUDENT WORKSHOP ROOM</div>
+            <div class="img-placeholder ph-box" style="border: none;">STUDENT COMMUNITY EVENT</div>
+        </div>
+
+    </section>
+
+    <!-- Vibrant Bottom Banner -->
+    <div class="container reveal">
+        <div class="cta-banner" style="background: linear-gradient(135deg, rgba(88, 28, 135, 1) 0%, rgba(157, 23, 77, 1) 100%);">
+            <h2>Ready to Build Your<br><strong>Financial Independence?</strong></h2>
+            <p>Join over 500+ women who have transformed their lives through<br>Aniyam Academy. Enroll today and start learning.</p>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+                <button class="btn-primary" style="background: var(--accent-pink);">Enroll Now</button>
+                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 5px;">
+                    <span class="material-icons" style="font-size: 1rem;">check_circle_outline</span> No prior experience needed
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container">
+        <!-- Exact same footer -->
+        <div class="footer-grid">
+             <div class="footer-logo">
+                 <div class="logo-placeholder" style="color: var(--accent-purple);">
+                     <div class="logo-icon-box" style="border-color: var(--accent-purple);">Logo</div>
+                     <span>Aniyam Academy</span>
+                 </div>
+                 <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">Empowering women to learn, earn, and grow from the comfort of their homes.</p>
+             </div>
+             <div class="footer-col">
+                 <h4>Quick Links</h4>
+                 <ul>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="about.html">About Us</a></li>
+                     <li><a href="gallery.html">Gallery</a></li>
+                     <li><a href="courses.html">Courses</a></li>
+                 </ul>
+             </div>
+             <div class="footer-col">
+                 <h4>Support</h4>
+                 <ul>
+                     <li><a href="testimonials.html">Testimonials</a></li>
+                     <li><a href="contact.html">Contact Us</a></li>
+                     <li><a href="#">Privacy Policy</a></li>
+                 </ul>
+             </div>
+             <div class="footer-col">
+                 <h4>Connect</h4>
+                 <div class="social-icons">
+                     <a href="#" class="social-icon"><span class="material-icons" style="font-size: 1rem;">camera_alt</span></a>
+                     <a href="#" class="social-icon"><span class="material-icons" style="font-size: 1rem;">play_arrow</span></a>
+                     <a href="#" class="social-icon"><span class="material-icons" style="font-size: 1rem;">thumb_up</span></a>
+                 </div>
+             </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Aniyam Academy. All rights reserved. <br><br>
+            Created by Mr. Vasanth
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

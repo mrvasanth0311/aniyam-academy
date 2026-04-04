@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Aniyam Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .founder-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .founder-img {
+            height: 500px;
+            border-radius: 20px;
+        }
+        .founder-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            border-left: 3px solid var(--accent-purple);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .feature-item {
+            display: flex;
+            gap: 15px;
+        }
+        .feature-icon {
+            color: var(--accent-purple);
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        @media (max-width: 900px) {
+            .founder-section { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Architecture -->
+    <header class="global-header">
+        <div class="logo-placeholder">
+            <div class="logo-icon-box">Logo</div>
+            <span>Aniyam Academy</span>
+        </div>
+        <button class="header-btn">Enroll Now</button>
+    </header>
+
+    <nav class="floating-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg px-container" style="padding-top: 150px; text-align: center;">
+        <div class="container reveal">
+            <span class="section-tag" style="padding: 5px 20px;">Our Beginning</span>
+            <h1 class="hero-title" style="margin-bottom: 20px;">Empowering Every Woman<br><span class="text-gradient">To Find Her Own Path</span></h1>
+            <p class="hero-subtitle">Aniyam Academy was started to help women learn skills and stand on their own. Whether you are a beginner or a housewife, you can start step by step with us.</p>
+        </div>
+    </section>
+
+    <!-- Meet Founder -->
+    <section class="container reveal">
+        <div class="founder-section">
+            <div class="img-placeholder founder-img">
+                MR. ALAGU JEGAN
+                <div class="card" style="position: absolute; bottom: -20px; right: 20px; padding: 20px; text-align: center; border-color: rgba(255,255,255,0.1);">
+                    <h3 style="color: var(--accent-purple); font-size: 1.5rem;">1000+</h3>
+                    <p style="font-size: 0.7rem; color: var(--text-muted);">STUDENTS TRAINED</p>
+                </div>
+            </div>
+            <div>
+                <span class="section-tag" style="border: none; color: var(--text-muted); padding: 0;">OUR VISIONARY</span>
+                <h2 style="font-size: 2.2rem; margin-bottom: 30px;">Meet the Founder</h2>
+                
+                <p class="founder-quote">"Founded by Mr. Alagu Jegan with a vision to support women in building confidence and income. I believe that financial independence is the first step toward true empowerment for every housewife."</p>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="material-icons feature-icon">verified_user</span>
+                        <div>
+                            <h4 style="font-size: 0.95rem;">Skill-Based Growth</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Focused on practical, market-ready vocational skills.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-icons feature-icon">group</span>
+                        <div>
+                            <h4 style="font-size: 0.95rem;">Community Support</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">A safe space for housewives to grow together.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-icons feature-icon">emoji_events</span>
+                        <div>
+                            <h4 style="font-size: 0.95rem;">Certified Excellence</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Recognized training that builds career credibility.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-icons feature-icon">timeline</span>
+                        <div>
+                            <h4 style="font-size: 0.95rem;">Step-by-Step</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Gradual learning paths designed for absolute beginners.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-secondary" style="font-size: 0.8rem;">Learn More About Our Journey &rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="container reveal">
+        <div class="values-grid">
+            <div class="card" style="background: rgba(255,255,255,0.02); display: flex; flex-direction: column; gap: 15px;">
+                <h4>Empowerment</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Helping women stand on their own feet through sustainable skillsets.</p>
+            </div>
+            <div class="card" style="background: rgba(255,255,255,0.02); display: flex; flex-direction: column; gap: 15px;">
+                <h4>Flexibility</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Learning that fits into a housewife's schedule without stress.</p>
+            </div>
+            <div class="card" style="background: rgba(255,255,255,0.02); display: flex; flex-direction: column; gap: 15px;">
+                <h4>Independence</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Turning hobbies into income-generating home businesses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="container reveal">
+        <div style="text-align: center; padding: 60px 0;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to Start Your Journey?</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px;">Join hundreds of women who have transformed their lives through Aniyam Academy. Your first step towards independence starts right here.</p>
+            <div class="flex-center">
+                <button class="btn-primary">Enroll Now</button>
+                <button class="header-btn" style="border: none;">View All Courses</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container">
+        <!-- Exactly the same footer as index -->
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <div class="logo-placeholder" style="color: var(--accent-purple);">
+                    <div class="logo-icon-box" style="border-color: var(--accent-purple);">Logo</div>
+                    <span>Aniyam Academy</span>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">Empowering women to learn, earn, and grow from the comfort of their homes.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><span class="material-icons" style="font-size: 1rem;">camera_alt</span></a>
+                    <a href="#" class="social-icon"><span class="material-icons" style="font-size: 1rem;">play_arrow</span></a>
+                    <a href="#" class="social-icon"><span class="material-icons" style="font-size: 1rem;">thumb_up</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Aniyam Academy. All rights reserved. <br><br>
+            Created by Mr. Vasanth
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Aniyam Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 2rem;
+            color: rgba(139, 92, 246, 0.2);
+        }
+
+        .stars {
+            color: #facc15;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .t-text {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .t-author {
+            color: var(--accent-purple);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        @media (max-width: 900px) {
+            .testimonial-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="global-header">
+        <div class="logo-placeholder">
+            <div class="logo-icon-box">Logo</div>
+            <span>Aniyam Academy</span>
+        </div>
+        <button class="header-btn">Enroll Now</button>
+    </header>
+
+    <nav class="floating-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="testimonials.html" class="nav-link.active">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg px-container" style="padding-top: 150px; text-align: center;">
+        <div class="container reveal">
+            <span class="section-tag" style="padding: 5px 20px;">SUCCESS STORIES</span>
+            <h1 class="hero-title" style="margin-bottom: 20px;">What Our Students Say</h1>
+            <p class="hero-subtitle">Real stories of transformation from housewives to independent entrepreneurs. Discover how Aniyam Academy helps women build confidence through skill-based learning.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Grid -->
+    <section class="container reveal">
+        <div class="testimonial-grid">
+            
+            <div class="testimonial-card">
+                <span class="material-icons quote-icon">format_quote</span>
+                <div class="stars">★★★★★</div>
+                <p class="t-text">"I joined the Aari work course without knowing anything about needles. Now I can do this work confidently from home while taking care of my children. The teachers are so patient and explain everything in Tamil so clearly."</p>
+                <div class="t-author">Lakshmi <span class="material-icons" style="font-size: 1rem;">verified</span></div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="material-icons quote-icon">format_quote</span>
+                <div class="stars">★★★★★</div>
+                <p class="t-text">"Aniyam Academy changed my life. I was just a housewife with no income. After the Baking course, I started taking small cake orders from my neighbors. Last month I earned my first 5000 rupees. My husband is so proud of me!"</p>
+                <div class="t-author">Kavitha <span class="material-icons" style="font-size: 1rem;">verified</span></div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="material-icons quote-icon">format_quote</span>
+                <div class="stars">★★★★★</div>
+                <p class="t-text">"The tailoring classes are very professional. I learned blouse stitching and saree pre-pleating. The flexible timings helped me manage my household work and learning perfectly. Highly recommended for every woman."</p>
+                <div class="t-author">Revathi <span class="material-icons" style="font-size: 1rem;">verified</span></div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="material-icons quote-icon">format_quote</span>
+                <div class="stars">★★★★★</div>
+                <p class="t-text">"I took the Makeup and Mehandi course. The step-by-step guidance gave me the confidence to start my own bridal service. Being financially independent has given me a new identity beyond just being a college student."</p>
+                <div class="t-author">Meena <span class="material-icons" style="font-size: 1rem;">verified</span></div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="material-icons quote-icon">format_quote</span>
+                <div class="stars">★★★★★</div>
+                <p class="t-text">"Aniyam Academy is a blessing for housewives. I learned soap making and candle making. The support even after the course ended is amazing. They really want us to succeed in our small businesses."</p>
+                <div class="t-author">Shanthi <span class="material-icons" style="font-size: 1rem;">verified</span></div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="material-icons quote-icon">format_quote</span>
+                <div class="stars">★★★★★</div>
+                <p class="t-text">"The teaching method is very simple. Even though I didn't study much, I could understand the technical parts of the course easily. Now I am teaching other women what I learned here."</p>
+                <div class="t-author">Deepa <span class="material-icons" style="font-size: 1rem;">verified</span></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="container reveal" style="text-align: center; padding-top: 40px;">
+        <h2 style="font-size: 2rem; margin-bottom: 20px;">Want to see more reviews?</h2>
+        <p style="color: var(--text-muted); margin-bottom: 40px;">Join 500+ women who have started their journey with us.</p>
+        
+        <div class="flex-center">
+            <button class="btn-secondary" style="display: flex; align-items: center; gap: 10px;" onclick="window.open('https://www.google.com/maps/place/Aniyam+Academy+-+Madurai/@9.9530885,78.1016957,17z/data=!4m8!3m7!1s0x3b00cf55d7bdfcc9:0xaaaa9d7f7eb694ed!8m2!3d9.9530885!4d78.1016957!9m1!1b1!16s%2Fg%2F11vdvzgvsx?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D', '_blank')">
+                View More on Google <span class="material-icons" style="font-size: 1rem;">launch</span>
+            </button>
+            <button class="btn-primary">Enroll Now</button>
+        </div>
+
+        <div class="stats-container" style="border-top: 1px solid var(--glass-border); padding-top: 60px; margin-top: 60px;">
+            <div>
+                <span class="stat-number text-gradient">500+</span>
+                <span class="stat-label">STUDENTS TRAINED</span>
+            </div>
+            <div>
+                <span class="stat-number text-gradient">4.5/5</span>
+                <span class="stat-label">GOOGLE RATING</span>
+            </div>
+            <div>
+                <span class="stat-number text-gradient">15+</span>
+                <span class="stat-label">SKILL COURSES</span>
+            </div>
+            <div>
+                <span class="stat-number text-gradient">100%</span>
+                <span class="stat-label">PRACTICAL LEARNING</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container">
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <div class="logo-placeholder" style="color: var(--accent-purple);">
+                    <div class="logo-icon-box" style="border-color: var(--accent-purple);">Logo</div>
+                    <span>Aniyam Academy</span>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">Empowering women to learn, earn, and grow from the comfort of their homes.</p>
+            </div>
+            <div class="footer-col">
+                 <h4>Quick Links</h4>
+                 <ul>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="about.html">About Us</a></li>
+                     <li><a href="gallery.html">Gallery</a></li>
+                     <li><a href="courses.html">Courses</a></li>
+                 </ul>
+            </div>
+            <div class="footer-col">
+                 <h4>Support</h4>
+                 <ul>
+                     <li><a href="testimonials.html">Testimonials</a></li>
+                     <li><a href="contact.html">Contact Us</a></li>
+                     <li><a href="#">Privacy Policy</a></li>
+                 </ul>
+            </div>
+            <div class="footer-col">
+                 <h4>Connect</h4>
+                 <div class="social-icons">
+                     <a href="#" class="social-icon"><span class="material-icons" style="font-size: 1rem;">camera_alt</span></a>
+                     <a href="#" class="social-icon"><span class="material-icons" style="font-size: 1rem;">play_arrow</span></a>
+                     <a href="#" class="social-icon"><span class="material-icons" style="font-size: 1rem;">thumb_up</span></a>
+                 </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Aniyam Academy. All rights reserved. <br><br>
+            Created by Mr. Vasanth
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

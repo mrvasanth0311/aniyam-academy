@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Aniyam Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .scroll-container {
+            overflow: hidden;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-bottom: 60px;
+        }
+
+        .scroll-row {
+            display: flex;
+            gap: 40px;
+            width: max-content;
+            padding: 0 20px;
+        }
+
+        .scroll-left-to-right {
+            animation: scrollLR 30s linear infinite;
+        }
+
+        .scroll-right-to-left {
+            animation: scrollRL 30s linear infinite;
+        }
+
+        @keyframes scrollLR {
+            0% { transform: translateX(calc(-50% - 10px)); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes scrollRL {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 10px)); }
+        }
+
+        .scroll-row:hover {
+            animation-play-state: paused;
+        }
+
+        .course-card {
+            width: 300px;
+            height: 400px;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+        }
+
+        .time-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(139, 92, 246, 0.2);
+            color: #a78bfa;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .card-img-placeholder {
+            height: 120px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            margin-bottom: 20px;
+            border: 1px dashed var(--glass-border);
+        }
+
+        .card-bottom {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 15px;
+            font-size: 0.75rem;
+            color: var(--accent-purple);
+        }
+
+        @media (max-width: 600px) {
+            .scroll-container {
+                overflow: visible;
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                left: auto;
+                right: auto;
+            }
+            .scroll-row {
+                animation: none !important;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 0;
+                width: 100%;
+            }
+            .course-card {
+                width: calc(50% - 8px);
+                height: auto;
+                padding: 16px;
+            }
+            /* Hide the infinite duplicate items on mobile since scrolling is off */
+            .scroll-row > .course-card:nth-child(n+5) {
+                display: none;
+            }
+            .card-img-placeholder {
+                height: 80px;
+                margin-bottom: 10px;
+            }
+            .course-card h3 {
+                font-size: 0.85rem;
+                margin-bottom: 5px;
+            }
+            .course-card p {
+                font-size: 0.7rem;
+                margin-bottom: 10px;
+            }
+            .time-badge {
+                font-size: 0.5rem;
+                padding: 2px 6px;
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Architecture -->
+    <header class="global-header">
+        <div class="logo-placeholder">
+            <div class="logo-icon-box">Logo</div>
+            <span>Aniyam Academy</span>
+        </div>
+        <button class="header-btn">Enroll Now</button>
+    </header>
+
+    <nav class="floating-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="courses.html" class="nav-link.active">Courses</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg px-container" style="padding-top: 150px; text-align: center;">
+        <div class="container reveal">
+            <span class="section-tag" style="padding: 5px 20px;">Skill-Based Learning</span>
+            <h1 class="hero-title" style="margin-bottom: 20px;">Master New <span class="text-gradient">Skills</span>,<br>Earn Your <span class="text-gradient-pink">Independence</span></h1>
+            <p class="hero-subtitle">Empowering women through vocational expertise. Our courses are designed for women to learn step by step and start earning from home.</p>
+        </div>
+    </section>
+
+    <!-- Infinite Scroll Courses -->
+    <section class="reveal" style="padding: 0 0 80px 0;">
+        
+        <!-- Row 1: Left to Right -->
+        <div class="scroll-container">
+            <div class="scroll-row scroll-left-to-right">
+                <!-- Group 1 -->
+                <div class="course-card">
+                    <span class="time-badge">3 Months</span>
+                    <div class="card-img-placeholder">TAILORING</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">content_cut</span> Professional Tailoring</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Learn the art of garment construction, from basic stitching to designer blouse cutting.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <span class="time-badge">1 Month</span>
+                    <div class="card-img-placeholder">SOAP MAKING</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">waves</span> Organic Soap Making</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Master the craft of cold process herbal soaps and natural skin care products.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <span class="time-badge">2 Months</span>
+                    <div class="card-img-placeholder">CAKE BAKING</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">cake</span> Professional Cake Baking</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">From classic sponges to advanced fondant decoration and tiered cakes.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <span class="time-badge">1.5 Months</span>
+                    <div class="card-img-placeholder">PAINTING</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">palette</span> Traditional & Modern Painting</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Explore canvas painting, glass art, and traditional mural styles.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                
+                <!-- Group 2 (Duplicated for seamless infinite scroll) -->
+                <div class="course-card">
+                    <span class="time-badge">3 Months</span>
+                    <div class="card-img-placeholder">TAILORING</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">content_cut</span> Professional Tailoring</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Learn the art of garment construction, from basic stitching to designer blouse cutting.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <span class="time-badge">1 Month</span>
+                    <div class="card-img-placeholder">SOAP MAKING</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">waves</span> Organic Soap Making</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Master the craft of cold process herbal soaps and natural skin care products.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <span class="time-badge">2 Months</span>
+                    <div class="card-img-placeholder">CAKE BAKING</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">cake</span> Professional Cake Baking</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">From classic sponges to advanced fondant decoration and tiered cakes.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <span class="time-badge">1.5 Months</span>
+                    <div class="card-img-placeholder">PAINTING</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">palette</span> Traditional & Modern Painting</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Explore canvas painting, glass art, and traditional mural styles.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2: Right to Left -->
+        <div class="scroll-container">
+            <div class="scroll-row scroll-right-to-left">
+                <!-- Group 1 -->
+                <div class="course-card">
+                    <span class="time-badge">15 Days</span>
+                    <div class="card-img-placeholder">SAREE PREPLEATING</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">styler</span> Saree Prepleating</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Learn professional saree draping, pre-pleating techniques, and boxing for weddings.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <span class="time-badge">3 Months</span>
+                    <div class="card-img-placeholder">AARI WORK</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">architecture</span> Advanced Aari Work</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Traditional embroidery techniques using the Aari needle. Create stunning designs.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <span class="time-badge">2.5 Months</span>
+                    <div class="card-img-placeholder">MAKEUP MEHANDI</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">face</span> Makeup & Mehandi Art</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Bridal makeup basics combined with intricate henna designs.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <span class="time-badge">1 Month</span>
+                    <div class="card-img-placeholder">BANGLE WORKS</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">radio_button_unchecked</span> Silk Thread Bangle Works</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Handcraft beautiful silk thread jewelry and customized bangles.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+
+                <!-- Group 2 (Duplicated) -->
+                <div class="course-card">
+                    <span class="time-badge">15 Days</span>
+                    <div class="card-img-placeholder">SAREE PREPLEATING</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">styler</span> Saree Prepleating</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Learn professional saree draping, pre-pleating techniques, and boxing for weddings.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <span class="time-badge">3 Months</span>
+                    <div class="card-img-placeholder">AARI WORK</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">architecture</span> Advanced Aari Work</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Traditional embroidery techniques using the Aari needle. Create stunning designs.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <span class="time-badge">2.5 Months</span>
+                    <div class="card-img-placeholder">MAKEUP MEHANDI</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">face</span> Makeup & Mehandi Art</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Bridal makeup basics combined with intricate henna designs.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <span class="time-badge">1 Month</span>
+                    <div class="card-img-placeholder">BANGLE WORKS</div>
+                    <h3 style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span class="material-icons" style="font-size: 1rem; color: var(--accent-purple);">radio_button_unchecked</span> Silk Thread Bangle Works</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Handcraft beautiful silk thread jewelry and customized bangles.</p>
+                    <div class="card-bottom" style="justify-content: center;">
+                        <span style="letter-spacing: 1px;">STEP-BY-STEP LEARNING</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Base CTA Footer area -->
+    <div style="background: var(--bg-card); padding: 80px 0;">
+        <div class="container reveal" style="text-align: center;">
+            <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Ready to Start Your Journey?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Join hundreds of women who have built successful home businesses through Aniyam Academy. Enroll today and take your first step toward confidence.</p>
+            <div class="flex-center" style="margin-bottom: 60px;">
+                <button class="btn-primary">Enroll Now</button>
+                <button class="btn-secondary">Learn More</button>
+            </div>
+            
+            <div style="display: flex; justify-content: center; gap: 60px; border-top: 1px solid var(--glass-border); padding-top: 40px;">
+                <div>
+                    <strong style="font-size: 2rem; display: block;">500+</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">STUDENTS</span>
+                </div>
+                <div>
+                    <strong style="font-size: 2rem; display: block;">12+</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">SKILL SETS</span>
+                </div>
+                <div>
+                    <strong style="font-size: 2rem; display: block;">100%</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">PRACTICAL</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container">
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <div class="logo-placeholder" style="color: var(--accent-purple);">
+                    <div class="logo-icon-box" style="border-color: var(--accent-purple);">Logo</div>
+                    <span>Aniyam Academy</span>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">Empowering women to learn, earn, and grow from the comfort of their homes.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><span class="material-icons" style="font-size: 1rem;">camera_alt</span></a>
+                    <a href="#" class="social-icon"><span class="material-icons" style="font-size: 1rem;">play_arrow</span></a>
+                    <a href="#" class="social-icon"><span class="material-icons" style="font-size: 1rem;">thumb_up</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Aniyam Academy. All rights reserved. <br><br>
+            Created by Mr. Vasanth
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
