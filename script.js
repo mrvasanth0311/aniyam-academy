@@ -46,15 +46,21 @@ document.addEventListener('DOMContentLoaded', () => {
     header.appendChild(hamburger);
   }
 
-  // --- Enroll Now Button Global Redirect ---
+  // --- Global Button Redirects ---
   // The user will replace this string inside script.js later!
-  const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/YOUR-FORM-ID/viewform'; 
+  const GOOGLE_FORM_URL = 'https://forms.gle/YOUR_LINK_HERE'; // Replace with the actual link when ready
   
   document.querySelectorAll('button').forEach(btn => {
-    if (btn.textContent.trim().toLowerCase() === 'enroll now') {
+    const text = btn.textContent.toLowerCase().trim();
+    if (text.includes('enroll now')) {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         window.open(GOOGLE_FORM_URL, '_blank');
+      });
+    } else if (text.includes('view all courses') || text.includes('explore courses')) {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = 'courses.html';
       });
     }
   });
@@ -82,4 +88,31 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.reload();
     });
   });
+  // --- Floating WhatsApp Icon ---
+  // To disable this icon, simply comment out or remove this block
+  const floatWa = document.createElement('a');
+  floatWa.href = "https://wa.me/917339692434";
+  floatWa.target = "_blank";
+  floatWa.innerHTML = '<i class="fab fa-whatsapp"></i>';
+  floatWa.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+  `;
+  floatWa.onmouseover = () => floatWa.style.transform = 'scale(1.1)';
+  floatWa.onmouseout = () => floatWa.style.transform = 'scale(1)';
+  document.body.appendChild(floatWa);
 });
