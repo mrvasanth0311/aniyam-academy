@@ -113,20 +113,16 @@
             }
             .scroll-row {
                 animation: none !important;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                gap: 16px;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                gap: 20px;
                 padding: 0;
                 width: 100%;
             }
             .course-card {
-                width: calc(50% - 8px);
+                width: 100%;
                 height: auto;
-                padding: 16px;
-            }
-            /* Hide the infinite duplicate items on mobile since scrolling is off */
-            .scroll-row > .course-card:nth-child(n+5) {
-                display: none;
+                padding: 20px;
             }
             .card-img-placeholder {
                 height: 80px;
@@ -154,8 +150,17 @@
     <!-- Header Architecture -->
     <header class="global-header">
         <div class="logo-placeholder">
-            <div class="logo-icon-box">Logo</div>
-            <span>Aniyam Academy</span>
+            <div class="custom-logo">
+    <div class="custom-logo-top">
+        <span class="cl-text">An</span>
+        <span class="custom-i-container">
+            <span class="custom-i-stem"></span>
+            <span class="custom-i-dot"></span>
+        </span>
+        <span class="cl-text">yam</span>
+    </div>
+    <div class="custom-logo-bottom">Academy</div>
+</div>
         </div>
         <button class="header-btn">Enroll Now</button>
     </header>
@@ -342,7 +347,45 @@
                 </div>
             </div>
         </div>
-
+        
+        <div id="mobile-load-more" style="display: none; text-align: center; margin-top: 30px;">
+            <button class="btn-secondary" id="loadMoreBtn" style="width: 80%;">Load More Courses</button>
+        </div>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                if (window.innerWidth <= 600) {
+                    const scrollRows = document.querySelectorAll('.scroll-row');
+                    const uniqueCards = [];
+                    // Extract only the first 4 unique cards from each row to avoid duplicates
+                    scrollRows.forEach(row => {
+                        const cards = Array.from(row.querySelectorAll('.course-card'));
+                        uniqueCards.push(...cards.slice(0, 4));
+                        // Hide duplicates entirely
+                        cards.slice(4).forEach(c => c.style.display = 'none');
+                    });
+                    
+                    // Hide anything beyond first 3 unique cards
+                    for(let i = 3; i < uniqueCards.length; i++) {
+                        uniqueCards[i].style.display = 'none';
+                    }
+                    
+                    const loadMoreContainer = document.getElementById('mobile-load-more');
+                    const loadMoreBtn = document.getElementById('loadMoreBtn');
+                    
+                    if(uniqueCards.length > 3) {
+                        loadMoreContainer.style.display = 'block';
+                    }
+                    
+                    loadMoreBtn.addEventListener('click', () => {
+                        for(let i = 3; i < uniqueCards.length; i++) {
+                            uniqueCards[i].style.display = 'flex';
+                        }
+                        loadMoreContainer.style.display = 'none';
+                    });
+                }
+            });
+        </script>
     </section>
 
     <!-- Base CTA Footer area -->
@@ -377,8 +420,17 @@
         <div class="footer-grid">
             <div class="footer-logo">
                 <div class="logo-placeholder" style="color: var(--accent-purple);">
-                    <div class="logo-icon-box" style="border-color: var(--accent-purple);">Logo</div>
-                    <span>Aniyam Academy</span>
+                    <div class="custom-logo">
+    <div class="custom-logo-top">
+        <span class="cl-text">An</span>
+        <span class="custom-i-container">
+            <span class="custom-i-stem"></span>
+            <span class="custom-i-dot"></span>
+        </span>
+        <span class="cl-text">yam</span>
+    </div>
+    <div class="custom-logo-bottom">Academy</div>
+</div>
                 </div>
                 <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">Empowering women to learn, earn, and grow from the comfort of their homes.</p>
             </div>

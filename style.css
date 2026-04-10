@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
   --bg-color: #0c0b1e;
@@ -450,19 +450,25 @@ label {
 @media (max-width: 600px) {
   .hero-title { font-size: 2rem; }
   .floating-nav { 
-    display: none;
+    display: flex;
     flex-direction: column;
     top: 90px; 
     bottom: auto; 
     width: calc(100% - 48px); 
     justify-content: center; 
     padding: 24px;
-    gap: 20px;
+    gap: 30px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
   }
   .floating-nav.open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
-  .nav-link { font-size: 0.8rem; }
+  .nav-link { font-size: 1.2rem; display: block; text-align: center; }
   .global-header { padding: 24px; } /* more space top */
   .hamburger-btn { display: block; color: var(--text-main); font-size: 2rem; cursor: pointer; pointer-events: auto; }
   .header-btn { display: none; }
@@ -471,3 +477,74 @@ label {
   .cta-banner h2 { font-size: 1.8rem; }
   .flex-center { flex-direction: column; gap: 16px; }
 }
+
+/* --- Custom Text Logo --- */
+.custom-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+.custom-logo-top {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  letter-spacing: 12px;
+}
+.cl-text {
+  background: linear-gradient(to right, var(--accent-pink), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  padding-bottom: 0.15em;
+  line-height: normal;
+}
+.custom-i-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 1em;
+  margin: 0 4px;
+  transform: translateY(0.08em);
+}
+.custom-i-stem {
+  width: 0.15em;
+  height: 0.55em;
+  background: linear-gradient(to bottom, var(--accent-pink), var(--accent-purple));
+  border-radius: 2px;
+}
+.custom-i-dot {
+  width: 0.18em;
+  height: 0.18em;
+  background-color: #ffd700;
+  border-radius: 50%;
+  margin-top: 0.08em;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+.custom-logo-bottom {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 16px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .custom-logo-top {
+    font-size: 1.8rem;
+    letter-spacing: 8px;
+  }
+  .custom-logo-bottom {
+    font-size: 0.8rem;
+    letter-spacing: 10px;
+  }
+  .custom-i-container {
+    margin: 0 2px;
+  }
+}
+
