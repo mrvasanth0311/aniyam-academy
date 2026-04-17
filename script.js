@@ -114,5 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
   floatWa.onmouseover = () => floatWa.style.transform = 'scale(1.1)';
   floatWa.onmouseout = () => floatWa.style.transform = 'scale(1)';
-  document.body.appendChild(floatWa);
+  if (!window.location.pathname.includes('contact.html')) {
+      document.body.appendChild(floatWa);
+  }
 });
