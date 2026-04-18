@@ -97,6 +97,12 @@
         @media (max-width: 900px) {
             .contact-grid, .placeholders-grid { grid-template-columns: 1fr; }
         }
+        @media (max-width: 600px) {
+            .contact-card { padding: 24px !important; }
+            .wa-card { padding: 24px !important; }
+            .ph-box { height: 200px; }
+            .contact-card.img-placeholder { height: 200px !important; margin-top: 20px !important; }
+        }
     </style>
 </head>
 <body>
@@ -125,7 +131,7 @@
         <a href="gallery.html" class="nav-link">Gallery</a>
         <a href="courses.html" class="nav-link">Courses</a>
         <a href="testimonials.html" class="nav-link">Testimonials</a>
-        <a href="contact.html" class="nav-link.active">Contact Us</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
     </nav>
 
     <!-- Hero Section -->
@@ -200,7 +206,7 @@
                     <a href="https://wa.me/917339692434" target="_blank" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
 
-                <div class="contact-card" style="margin-top: 30px; padding: 0; overflow: hidden; height: 180px; border-radius: 12px; border: 1px solid var(--glass-border); background-image: url('images/contact4.jpeg'); background-size: cover; background-position: center;"></div>
+                <div class="contact-card img-placeholder" style="margin-top: 30px; padding: 0; overflow: hidden; height: 250px; border-radius: 12px; border: 1px solid var(--glass-border); background-image: url('images/contact4.jpeg'); background-size: cover; background-position: center;"></div>
             </div>
 
         </div>

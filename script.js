@@ -81,13 +81,88 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Logo Refresh Logic ---
-  const logos = document.querySelectorAll('.logo-placeholder');
+  const logos = document.querySelectorAll('header .logo-placeholder');
   logos.forEach(logo => {
     logo.style.cursor = 'pointer';
     logo.addEventListener('click', () => {
       window.location.reload();
     });
   });
+
+  // --- Fullscreen Image Lightbox ---
+  const imgPlaceholders = document.querySelectorAll('.img-placeholder, .gallery-item img, .contact-card img');
+  if (imgPlaceholders.length > 0) {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox-overlay';
+    lightbox.style.cssText = `
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.9); z-index: 9999; display: none;
+      justify-content: center; align-items: center; cursor: zoom-out;
+      padding: 40px;
+    `;
+    
+    const lightboxImg = document.createElement('img');
+    lightboxImg.style.cssText = `
+      max-width: 100%; max-height: 100%;
+      object-fit: contain; display: none;
+      border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    `;
+    
+    const lightboxText = document.createElement('div');
+    lightboxText.style.cssText = `
+      width: 100%; height: 100%;
+      max-width: 800px; max-height: 80vh;
+      display: none; justify-content: center; align-items: center;
+      color: white; font-size: 2rem; text-align: center;
+      background: var(--bg-card); border: 1px dashed var(--glass-border);
+      border-radius: 12px;
+    `;
+    
+    lightbox.appendChild(lightboxImg);
+    lightbox.appendChild(lightboxText);
+    document.body.appendChild(lightbox);
+    
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.style.display = 'none';
+      lightboxText.style.display = 'none';
+      lightboxImg.src = '';
+    });
+
+    imgPlaceholders.forEach(img => {
+      // Ignore items inside links (like video reels playing externally)
+      if (img.closest('a')) return;
+      
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        let srcUrl = '';
+        
+        if (img.tagName.toLowerCase() === 'img') {
+          srcUrl = img.src;
+        } else {
+          const bgImg = img.style.backgroundImage;
+          if (bgImg && bgImg !== 'none') {
+            const match = bgImg.match(/url\([\"\']?(.*?)[\"\']?\)/);
+            if (match && match[1]) {
+               srcUrl = match[1];
+            }
+          }
+        }
+
+        if (srcUrl) {
+           lightboxImg.src = srcUrl;
+           lightboxImg.style.display = 'block';
+           lightboxText.style.display = 'none';
+        } else {
+           lightboxText.innerText = img.innerText;
+           lightboxText.style.display = 'flex';
+           lightboxImg.style.display = 'none';
+        }
+        
+        lightbox.style.display = 'flex';
+      });
+    });
+  }
   // --- Floating WhatsApp Icon ---
   // To disable this icon, simply comment out or remove this block
   const floatWa = document.createElement('a');
