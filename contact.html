@@ -98,10 +98,56 @@
             .contact-grid, .placeholders-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 600px) {
-            .contact-card { padding: 24px !important; }
-            .wa-card { padding: 24px !important; }
+            .contact-card { padding: 20px 15px !important; box-sizing: border-box; width: 100%; max-width: 100%; overflow: hidden; }
+            .wa-card { padding: 20px 15px !important; box-sizing: border-box; width: 100%; max-width: 100%; overflow: hidden; }
             .ph-box { height: 200px; }
             .contact-card.img-placeholder { height: 200px !important; margin-top: 20px !important; }
+            .contact-grid { gap: 30px; margin-top: 20px; width: 100%; }
+            .placeholders-grid { gap: 15px; margin: 30px 0; width: 100%; }
+            
+            .map-box { height: 200px !important; margin-top: 20px !important; }
+            .contact4-box { height: 200px !important; margin-top: 20px !important; }
+            
+            .right-info {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .contact-list {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 0;
+            }
+            .contact-list li {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+                gap: 15px;
+                margin-bottom: 0;
+                width: 100%;
+            }
+            .social-icons-wrapper {
+                justify-content: flex-start;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .cta-banner-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .btn-full {
+                padding: 12px;
+                font-size: 0.95rem !important;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .hero-title {
+                font-size: 2rem !important;
+            }
         }
     </style>
 </head>
@@ -147,9 +193,9 @@
         <div class="contact-grid">
             
             <!-- Left Form -->
-            <div>
+            <div style="width: 100%; max-width: 100%; overflow: hidden; box-sizing: border-box;">
                 <span class="section-tag" style="border: none; color: var(--accent-purple); padding: 0;">QUICK CONNECT</span>
-                <div class="contact-card" style="margin-top: 20px; text-align: center; padding: 40px 20px;">
+                <div class="contact-card" style="margin-top: 20px; text-align: center; padding: 40px 20px; box-sizing: border-box; width: 100%;">
                     <span class="material-icons" style="font-size: 4rem; color: #25D366; margin-bottom: 20px;">whatsapp</span>
                     <h3 style="margin-bottom: 5px; font-size: 1.5rem;">+91 73396 92434</h3>
                     <h4 style="margin-bottom: 15px; font-size: 1.1rem; font-weight: 500; color: #aaaaaa;">Chat on WhatsApp</h4>
@@ -157,13 +203,13 @@
                     <a href="https://wa.me/917339692434?text=Hi%20this%20is%20aniyam%20academy%20right%20i%20want%20to%20know%20about%20some%20course%20details" target="_blank" class="btn-full" style="background: #25D366; text-decoration: none; color: #fff; font-size: 1.05rem;">Start Chat Now &rarr;</a>
                 </div>
                 
-                <div class="contact-card" style="margin-top: 20px; padding: 0; overflow: hidden; height: 250px; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <div class="contact-card map-box" style="margin-top: 20px; padding: 0; overflow: hidden; height: 250px; border-radius: 12px; border: 1px solid var(--glass-border); box-sizing: border-box; width: 100%;">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.769955141087!2d78.1016957!3d9.9530885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00cf55d7bdfcc9%3A0xaaaa9d7f7eb694ed!2sAniyam%20Academy%20-%20Madurai!5e0!3m2!1sen!2sin!4v1775445799547!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
 
             <!-- Right Info -->
-            <div>
+            <div class="right-info">
                 <span class="section-tag" style="border: none; color: var(--text-main); font-weight: 500; padding: 0;">DIRECT CONTACT</span>
                 
 
@@ -200,13 +246,13 @@
                 </ul>
 
                 <span class="section-tag" style="border: none; color: var(--text-main); font-weight: 500; padding: 0;">FOLLOW OUR JOURNEY</span>
-                <div style="display: flex; gap: 15px; margin-top: 15px;">
+                <div class="social-icons-wrapper" style="display: flex; gap: 15px; margin-top: 15px;">
                     <a href="https://www.instagram.com/aniyam_academy/?hl=en" target="_blank" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/p/Aniyam-Academy-61560764136309/" target="_blank" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://wa.me/917339692434" target="_blank" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
 
-                <div class="contact-card img-placeholder" style="margin-top: 30px; padding: 0; overflow: hidden; height: 250px; border-radius: 12px; border: 1px solid var(--glass-border); background-image: url('images/contact4.jpeg'); background-size: cover; background-position: center;"></div>
+                <div class="contact-card img-placeholder contact4-box" style="margin-top: 30px; padding: 0; overflow: hidden; height: 250px; border-radius: 12px; border: 1px solid var(--glass-border); background-image: url('images/contact4.jpeg'); background-size: cover; background-position: center; box-sizing: border-box; width: 100%;"></div>
             </div>
 
         </div>
@@ -225,7 +271,7 @@
         <div class="cta-banner" style="background: linear-gradient(135deg, rgba(88, 28, 135, 1) 0%, rgba(157, 23, 77, 1) 100%);">
             <h2>Ready to Build Your<br><strong>Financial Independence?</strong></h2>
             <p>Join over 500+ women who have transformed their lives through<br>Aniyam Academy. Enroll today and start learning.</p>
-            <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+            <div class="cta-banner-content" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
                 <button class="btn-primary" style="background: var(--accent-pink);">Enroll Now</button>
                 <div style="font-size: 0.8rem; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 5px;">
                     <span class="material-icons" style="font-size: 1rem;">check_circle_outline</span> No prior experience needed

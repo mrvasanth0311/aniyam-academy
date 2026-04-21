@@ -123,12 +123,12 @@
                 width: 85%;
                 max-width: 320px;
                 margin: 0 auto;
-                height: 420px;
-                padding: 20px;
+                height: 350px;
+                padding: 15px;
             }
             .card-img-placeholder {
-                height: 80px;
-                margin-bottom: 10px;
+                height: 140px;
+                margin-bottom: 15px;
             }
             .course-card h3 {
                 font-size: 0.85rem;
@@ -369,20 +369,20 @@
                         cards.slice(uniqueCount).forEach(c => c.style.display = 'none');
                     });
                     
-                    // Hide anything beyond first 3 unique cards
-                    for(let i = 3; i < uniqueCards.length; i++) {
+                    // Hide anything beyond first 4 unique cards
+                    for(let i = 4; i < uniqueCards.length; i++) {
                         uniqueCards[i].style.display = 'none';
                     }
                     
                     const loadMoreContainer = document.getElementById('mobile-load-more');
                     const loadMoreBtn = document.getElementById('loadMoreBtn');
                     
-                    if(uniqueCards.length > 3) {
+                    if(uniqueCards.length > 4) {
                         loadMoreContainer.style.display = 'block';
                     }
                     
                     loadMoreBtn.addEventListener('click', () => {
-                        for(let i = 3; i < uniqueCards.length; i++) {
+                        for(let i = 4; i < uniqueCards.length; i++) {
                             uniqueCards[i].style.display = 'flex';
                         }
                         loadMoreContainer.style.display = 'none';
