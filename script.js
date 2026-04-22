@@ -175,13 +175,13 @@ document.addEventListener('DOMContentLoaded', () => {
     right: 30px;
     background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
     color: white;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 32px;
+    font-size: 28px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     z-index: 1000;
     transition: transform 0.3s ease;
