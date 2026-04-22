@@ -10,97 +10,104 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 200px;
             gap: 20px;
-            margin-top: 50px;
+            margin-bottom: 50px;
         }
-
+        
         .gallery-item {
-            position: relative;
             border-radius: 12px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .gallery-item .img-placeholder {
-            height: 100%;
-            width: 100%;
-            border-radius: 12px;
+            position: relative;
+            background: var(--bg-card);
             border: 1px solid var(--glass-border);
-            font-size: 0.7rem;
-            word-break: break-all;
-            padding: 20px;
-            text-align: center;
+            transition: all 0.3s;
         }
 
-        /* Specific spans for masonry */
-        .item-tall { grid-row: span 2; }
-        .item-wide { grid-column: span 2; }
-        .item-large { grid-row: span 2; grid-column: span 2; }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+        }
+
+        .item-wide {
+            grid-column: span 2;
+        }
+
+        .item-tall {
+            grid-row: span 2;
+        }
+
+        .item-large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
 
         .type-badge {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: rgba(0,0,0,0.5);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.6rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: bold;
             color: white;
-            border: 1px solid var(--glass-border);
             z-index: 10;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(to top, rgba(12,11,30,0.9), transparent);
-            transform: translateY(100%);
-            transition: all 0.3s ease;
+            padding: 15px;
         }
 
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-        }
-
-        .follow-banner {
-            text-align: center;
-            margin: 60px 0;
-            padding: 40px 0;
-            border-top: 1px solid var(--glass-border);
-            border-bottom: 1px solid var(--glass-border);
-        }
-        
         .social-link-styled {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin: 0 15px;
-            font-size: 0.9rem;
             color: var(--text-main);
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .social-link-styled:hover {
+            background: var(--accent-purple);
+            color: white;
+            transform: translateY(-3px);
         }
 
         @media (max-width: 900px) {
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-            .item-wide { grid-column: span 1; }
-            .item-large { grid-column: span 2; grid-row: span 1; }
         }
+
         @media (max-width: 600px) {
             .gallery-grid { grid-template-columns: 1fr; }
-            .item-tall { grid-row: span 1; }
-            .item-large { grid-column: span 1; }
-            
-            .social-links-container {
-                flex-direction: column;
-                gap: 15px !important;
+            .item-wide, .item-tall, .item-large {
+                grid-column: span 1;
+                grid-row: span 1;
             }
-            .social-link-styled {
-                margin: 0;
-            }
+        }
+
+        .insta-caption {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.3s ease;
+        }
+        .custom-reel:hover .insta-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .custom-reel:hover .material-icons {
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+        }
+        .custom-reel .material-icons {
+            transition: all 0.3s ease;
         }
     </style>
 </head>
@@ -121,7 +128,7 @@
     <div class="custom-logo-bottom">Academy</div>
 </div>
         </div>
-        <button class="header-btn">Enroll Now</button>
+        <button class="header-btn" onclick="window.open('https://forms.gle/bwNUmPQLCT2G4Umm7', '_blank')">Enroll Now</button>
     </header>
 
     <nav class="floating-nav">
@@ -151,17 +158,21 @@
                 <div class="img-placeholder" style="height: 250px; background-image: url('images/gallery1.jpg'); background-size: cover; background-position: center; border: none;"></div>
             </div>
 
-            <a href="https://www.instagram.com/reel/DVN8ecXkd2u/" target="_blank" class="gallery-item item-tall" style="display: block; text-decoration: none; color: inherit; cursor: pointer;">
+            <a href="https://www.instagram.com/reel/DVN8ecXkd2u/" target="_blank" class="gallery-item item-tall custom-reel" style="display: block; text-decoration: none; color: inherit; cursor: pointer; position: relative;">
                 <span class="type-badge">REEL</span>
-                <div class="img-placeholder" style="background: linear-gradient(135deg, #2b1055, #7597de); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white;">
-                    <span class="material-icons" style="font-size: 3.5rem; margin-bottom: 15px;">play_circle</span>
-                    <span style="font-size: 1rem; font-weight: bold; text-align: center; padding: 0 10px;">Fabric painting</span>
-                    <span style="font-size: 1rem; font-weight: bold; text-align: center; padding: 0 10px;">Aniyam Academy</span>
+                <div style="height: 450px; background: linear-gradient(135deg, #2b1055, #7597de); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white;">
+                    <span class="material-icons" style="font-size: 4rem; color: white; margin-bottom: 15px;">play_circle</span>
+                    <div>
+                        <span style="font-size: 1.1rem; font-weight: bold; text-align: center; padding: 0 10px; margin-bottom: 5px; display: block;">Aniyam Academy</span>
+                        <span style="font-size: 1.1rem; font-weight: bold; text-align: center; padding: 0 10px; display: block;">Fabric Painting</span>
+                    </div>
                 </div>
-                <div class="gallery-caption">
-                    <h5 style="margin-bottom: 5px;">Fabric painting</h5>
-                    <h5 style="margin-bottom: 5px;">Aniyam Academy</h5>
-                    <p style="font-size: 0.7rem; color: var(--text-muted);">Watch our Instagram Reel...</p>
+                <div class="insta-caption" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span class="material-icons" style="font-size: 1.2rem; color: white;">account_circle</span>
+                        <span style="font-size: 0.9rem; font-weight: bold; color: white;">aniyam_academy</span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.4;">Watch our students master the art of Fabric Painting! 🎨✨ #aniyamacademy #fabricpainting</p>
                 </div>
             </a>
 
@@ -170,23 +181,27 @@
                 <div class="img-placeholder" style="height: 250px; background-image: url('images/galery2.webp'); background-size: cover; background-position: center; border: none;"></div>
             </div>
 
-            <a href="https://www.instagram.com/reel/DSRq-wfD-8N/" target="_blank" class="gallery-item item-tall" style="display: block; text-decoration: none; color: inherit; cursor: pointer;">
+            <a href="https://www.instagram.com/reel/DSRq-wfD-8N/" target="_blank" class="gallery-item item-tall custom-reel" style="display: block; text-decoration: none; color: inherit; cursor: pointer; position: relative;">
                 <span class="type-badge">REEL</span>
-                <div class="img-placeholder" style="background: linear-gradient(135deg, #2b1055, #7597de); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white;">
-                    <span class="material-icons" style="font-size: 3.5rem; margin-bottom: 15px;">play_circle</span>
-                    <span style="font-size: 1rem; font-weight: bold; text-align: center; padding: 0 10px;">Cake Baking</span>
-                    <span style="font-size: 1rem; font-weight: bold; text-align: center; padding: 0 10px;">Aniyam Academy</span>
+                <div style="height: 450px; background: linear-gradient(135deg, #2b1055, #7597de); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white;">
+                    <span class="material-icons" style="font-size: 4rem; color: white; margin-bottom: 15px;">play_circle</span>
+                    <div>
+                        <span style="font-size: 1.1rem; font-weight: bold; text-align: center; padding: 0 10px; margin-bottom: 5px; display: block;">Aniyam Academy</span>
+                        <span style="font-size: 1.1rem; font-weight: bold; text-align: center; padding: 0 10px; display: block;">Cake Baking</span>
+                    </div>
                 </div>
-                <div class="gallery-caption">
-                    <h5 style="margin-bottom: 5px;">Cake Baking</h5>
-                    <h5 style="margin-bottom: 5px;">Aniyam Academy</h5>
-                    <p style="font-size: 0.7rem; color: var(--text-muted);">Watch our Instagram Reel...</p>
+                <div class="insta-caption" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span class="material-icons" style="font-size: 1.2rem; color: white;">account_circle</span>
+                        <span style="font-size: 0.9rem; font-weight: bold; color: white;">aniyam_academy</span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.4;">Learn professional Cake Baking techniques! 🎂✨ #aniyamacademy #cakebaking</p>
                 </div>
             </a>
 
             <div class="gallery-item item-large">
                 <span class="type-badge">POST</span>
-                <div class="img-placeholder" style="height: 350px; background-image: url('images/gallery3.jpg'); background-size: cover; background-position: center; border: none;"></div>
+                <div class="img-placeholder" style="height: 100%; min-height: 520px; background-image: url('images/gallery3.jpg'); background-size: cover; background-position: center; border: none;"></div>
             </div>
 
             <div class="gallery-item">
@@ -206,14 +221,14 @@
 
         </div>
 
-        <div class="follow-banner reveal">
+        <div class="follow-banner reveal" style="margin-bottom: 60px;">
             <span class="section-tag" style="border: none; color: var(--text-muted);">FOLLOW OUR JOURNEY</span>
             <div class="social-links-container" style="margin-top: 20px; display: flex; justify-content: center; gap: 30px;">
-                <a href="https://www.instagram.com/aniyam_academy/?hl=en" target="_blank" class="social-link-styled">
-                    <span class="material-icons">camera_alt</span> @Aniyam_Academy
+                <a href="https://www.instagram.com/aniyam_academy/?hl=en" target="_blank" class="social-link-styled" style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fab fa-instagram" style="font-size: 1.5rem; color: #ffffff;"></i> <span style="font-size: 1.1rem;">@Aniyam_Academy</span>
                 </a>
-                <a href="https://www.youtube.com/@aniyam_academy" target="_blank" class="social-link-styled">
-                    <span class="material-icons">play_circle</span>Aniyam_Academy
+                <a href="https://www.youtube.com/@aniyam_academy" target="_blank" class="social-link-styled" style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fab fa-youtube" style="font-size: 1.5rem; color: #ffffff;"></i> <span style="font-size: 1.1rem;">Aniyam_Academy</span>
                 </a>
             </div>
         </div>
@@ -224,7 +239,7 @@
             <p style="color: var(--text-muted); margin-bottom: 30px;">Join thousands of women who have transformed their lives through our skill-based training.</p>
             <div class="flex-center">
                 <button class="btn-secondary" onclick="window.location.href='courses.html'">Explore course</button>
-                <button class="btn-primary">Enroll Now <span class="material-icons" style="font-size: 1rem; vertical-align: middle; margin-left: 5px;">open_in_new</span></button>
+                <button class="btn-primary" onclick="window.open('https://forms.gle/bwNUmPQLCT2G4Umm7', '_blank')">Enroll Now <span class="material-icons" style="font-size: 1rem; vertical-align: middle; margin-left: 5px;">open_in_new</span></button>
             </div>
         </div>
     </section>
